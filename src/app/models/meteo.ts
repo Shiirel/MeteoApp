@@ -4,4 +4,5 @@ export interface MeteoData {
   description: string;
   humidite: number;
   vent: number;
+  icon : string;
 }

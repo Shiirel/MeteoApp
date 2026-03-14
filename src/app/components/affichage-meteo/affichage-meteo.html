@@ -4,8 +4,15 @@
     <button (click)="chercher(nomVille.value)">Chercher</button>
   </div>
 
+
+
   @if (infos$ | async; as meteo) {
-  <div class="card">
+  <div class="card" [style.background]="getBackground(meteo.temperature, meteo.description)">
+
+    <img class="weather-icon"
+         [src]="'https://openweathermap.org/img/wn/' + meteo.icon + '@2x.png'"
+         alt="Météo">
+
     <div class="ville">{{ meteo.ville }}</div>
     <div class="temp">{{ meteo.temperature | number:'1.0-0' }}°C</div>
     <div class="desc">{{ meteo.description }}</div>
@@ -16,6 +23,8 @@
     </div>
   </div>
   } @else {
-  <p style="text-align: center; color: #95a5a6;">En attente de données...</p>
+  <div class="loading-state">
+    <p>Chargement en cours...</p>
+  </div>
   }
 </div>

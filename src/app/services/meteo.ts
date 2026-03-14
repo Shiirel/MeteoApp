@@ -21,9 +21,11 @@ export class Meteo {
           temperature: data.main.temp,
           description: data.weather[0].description,
           humidite: data.main.humidity,
-          vent: data.wind.speed
+          vent: data.wind.speed,
+          icon: data.weather[0].icon
         };
       })
     );
   }
+
 }

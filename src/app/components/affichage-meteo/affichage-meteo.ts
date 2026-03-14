@@ -15,4 +15,17 @@ export class AffichageMeteo {
   chercher(ville: string) {
     this.infos$ = this.meteoService.recupererMeteo(ville);
   }
+
+  getBackground(temp: number, desc: string): string {
+      if (desc.includes('pluie') || desc.includes('orage')) {
+        return 'linear-gradient(135deg, #636e72, #2d3436)';
+      }
+      if (temp > 20) {
+        return 'linear-gradient(135deg, #fbc531, #e17055)';
+      }
+      if (temp < 5) {
+        return 'linear-gradient(135deg, #74b9ff, #00cec9)';
+      }
+      return 'linear-gradient(135deg, #a29bfe, #6c5ce7)';
+    }
 }

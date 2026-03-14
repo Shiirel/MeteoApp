@@ -60,3 +60,21 @@ button:hover {
   border-top: 1px solid rgba(255,255,255,0.3);
   padding-top: 20px;
 }
+
+.weather-icon {
+  width: 120px;
+  height: 120px;
+  /* Ce filtre va créer une lueur blanche autour du rond gris */
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7));
+  margin-bottom: -10px; /* Pour rapprocher l'icône du nom de la ville */
+}
+
+.card {
+  transition: background 0.5s ease-in-out; /* Transition douce pour le changement de couleur */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 25px;
+  color: white;
+}
