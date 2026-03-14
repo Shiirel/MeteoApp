@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="recherche">
+    <input #nomVille type="text" placeholder="Rechercher une ville...">
+    <button (click)="chercher(nomVille.value)">Chercher</button>
+  </div>
+
+  @if (infos$ | async; as meteo) {
+  <div class="card">
+    <div class="ville">{{ meteo.ville }}</div>
+    <div class="temp">{{ meteo.temperature | number:'1.0-0' }}°C</div>
+    <div class="desc">{{ meteo.description }}</div>
+
+    <div class="details">
+      <div>💧 Humidité<br><strong>{{ meteo.humidite }}%</strong></div>
+      <div>🌬️ Vent<br><strong>{{ meteo.vent }} km/h</strong></div>
+    </div>
+  </div>
+  } @else {
+  <p style="text-align: center; color: #95a5a6;">En attente de données...</p>
+  }
+</div>
